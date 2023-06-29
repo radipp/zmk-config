@@ -5,52 +5,105 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 
 / {
-        keymap {
-                compatible = "zmk,keymap";
+    combos {
+        compatible = "zmk,combos";
 
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
-                };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
-
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
+        cmb_end {
+            bindings = <&kp END>;
+            key-positions = <19 20>;
+            layers = <0>;
         };
+
+        cmb_home {
+            bindings = <&kp HOME>;
+            key-positions = <15 16>;
+        };
+
+        cmb_bsp {
+            bindings = <&kp LC(BACKSPACE)>;
+            key-positions = <7 8>;
+        };
+
+        cmb_select_up {
+            bindings = <&kp LC(LS(RIGHT))>;
+            key-positions = <3 4>;
+        };
+
+        cmb_select_right {
+            bindings = <&kp LC(LS(RIGHT))>;
+            key-positions = <16 17>;
+        };
+
+        cmb_select_left {
+            bindings = <&kp LC(LS(LEFT))>;
+            key-positions = <14 15>;
+        };
+
+        cmb_select_down {
+            bindings = <&kp LS(LC(DOWN_ARROW))>;
+            key-positions = <27 28>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+
+            bindings = <
+  &kp TAB  &kp Q  &kp W     &kp E  &kp R      &kp T      &kp Y  &kp U      &kp I    &kp O     &kp P              &kp BSPC
+&kp LCTRL  &kp A  &kp S     &kp D  &kp F      &kp G      &kp H  &kp J      &kp K    &kp L  &kp SEMI  &mt LEFT_SHIFT ENTER
+&kp LSHFT  &kp Z  &kp X     &kp C  &kp V      &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH                 &mo 3
+                         &kp LALT  &mo 1  &kp SPACE    &kp RET  &mo 2   &kp RWIN
+            >;
+        };
+
+        lower_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+  &kp ESCAPE        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6        &kp F7        &kp F8        &kp F9       &kp F10  &kp BSPC
+&kp LEFT_ALT  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &trans
+      &trans      &kp PLUS     &kp MINUS      &kp STAR     &kp SLASH     &kp EQUAL         &kp F11       &kp F12         &none         &none         &none    &trans
+                                                &trans        &trans        &trans          &trans        &trans        &trans
+            >;
+        };
+
+        raise_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&kp ESCAPE        &kp CARET     &kp AMPERSAND          &kp TILDE           &kp PIPE            &none                &kp PLUS              &kp MINUS   &kp ASTERISK         &kp COLON      &kp EQUAL  &kp BSPC
+ &kp LCTRL  &kp EXCLAMATION       &kp AT_SIGN           &kp HASH         &kp DOLLAR      &kp PERCENT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS      &kp COMMA        &kp PERIOD  &kp SEMICOLON    &trans
+ &kp LSHFT   &kp UNDERSCORE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp LEFT_BRACE  &kp RIGHT_BRACE           &kp BACKSLASH              &kp SLASH  &kp LESS_THAN  &kp GREATER_THAN   &kp QUESTION    &trans
+                                                         &kp SQT  &kp DOUBLE_QUOTES        &kp SPACE                 &kp RET                 &trans         &trans
+            >;
+        };
+
+        function {
+            bindings = <
+&kp ESCAPE     &kp LS(LC(TAB))  &kp UP_ARROW  &kp LC(TAB)        &none  &kp C_VOLUME_UP           &none         &none  &kp PRINTSCREEN  &none      &none  &kp DEL
+  &kp CAPS            &kp LEFT      &kp DOWN    &kp RIGHT        &none     &kp C_VOL_DN      &bt BT_CLR         &none            &none  &none      &none    &none
+&caps_word  &kp LC(C_PREVIOUS)     &kp LC(X)    &kp LC(C)    &kp LC(V)       &kp C_MUTE    &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &none  &kp QMARK    &none
+                                                    &none  &kp PAGE_UP         &kp HOME         &kp END     &kp PG_DN            &none
+            >;
+        };
+    };
 };
