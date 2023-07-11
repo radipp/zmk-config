@@ -29,7 +29,7 @@
         };
 
         cmb_select_up {
-            bindings = <&kp LC(LS(RIGHT))>;
+            bindings = <&kp LC(LS(UP_ARROW))>;
             key-positions = <3 4>;
         };
 
