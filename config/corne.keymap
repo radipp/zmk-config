@@ -21,41 +21,65 @@
         cmb_home {
             bindings = <&kp HOME>;
             key-positions = <15 16>;
+            layers = <3>;
         };
 
         cmb_bsp {
             bindings = <&kp LC(BACKSPACE)>;
             key-positions = <7 8>;
+            layers = <0>;
         };
 
         cmb_select_up {
             bindings = <&kp LC(LS(UP_ARROW))>;
             key-positions = <3 4>;
+            layers = <3>;
         };
 
         cmb_select_right {
             bindings = <&kp LC(LS(RIGHT))>;
             key-positions = <16 17>;
+            layers = <3>;
         };
 
         cmb_select_left {
             bindings = <&kp LC(LS(LEFT))>;
             key-positions = <14 15>;
+            layers = <3>;
         };
 
         cmb_select_down {
             bindings = <&kp LS(LC(DOWN_ARROW))>;
             key-positions = <27 28>;
+            layers = <3>;
         };
 
         cmb_esc {
             bindings = <&kp ESCAPE>;
             key-positions = <0 1>;
+            layers = <0>;
         };
 
         cmb_del {
             bindings = <&kp DELETE>;
             key-positions = <10 11>;
+            layers = <0>;
+        };
+    };
+
+    behaviors {
+        hm: hm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HM";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <125>;
+            flavor = "tap-preferred";
+            global-quick-tap;
         };
     };
 
@@ -70,10 +94,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &kp TAB  &kp Q  &kp W     &kp E  &kp R      &kp T      &kp Y  &kp U      &kp I    &kp O          &kp P              &kp BSPC
-&kp LCTRL  &kp A  &kp S     &kp D  &kp F      &kp G      &kp H  &kp J      &kp K    &kp L  &kp SEMICOLON  &mt LEFT_SHIFT ENTER
-&kp LSHFT  &kp Z  &kp X     &kp C  &kp V      &kp B      &kp N  &kp M  &kp COMMA  &kp DOT       &kp FSLH                 &mo 3
-                         &kp LALT  &mo 1  &kp SPACE    &kp RET  &mo 2   &kp RWIN
+  &kp TAB  &kp Q             &kp W           &kp E        &kp R      &kp T      &kp Y                &kp U            &kp I         &kp O          &kp P              &kp BSPC
+&kp LCTRL  &kp A  &hm LEFT_SHIFT S  &hm LEFT_ALT D  &hm LCTRL F      &kp G      &kp H  &hm RIGHT_CONTROL J  &hm RIGHT_ALT K  &hm RSHIFT L  &kp SEMICOLON  &mt LEFT_SHIFT ENTER
+&kp LSHFT  &kp Z             &kp X           &kp C        &kp V      &kp B      &kp N                &kp M        &kp COMMA       &kp DOT       &kp FSLH                 &mo 3
+                                          &kp LALT        &mo 1  &kp SPACE    &kp RET                &mo 2         &kp RWIN
             >;
         };
 
