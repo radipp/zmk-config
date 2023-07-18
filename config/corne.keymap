@@ -12,18 +12,6 @@
     combos {
         compatible = "zmk,combos";
 
-        cmb_end {
-            bindings = <&kp END>;
-            key-positions = <19 20>;
-            layers = <0>;
-        };
-
-        cmb_home {
-            bindings = <&kp HOME>;
-            key-positions = <15 16>;
-            layers = <3>;
-        };
-
         cmb_bsp {
             bindings = <&kp LC(BACKSPACE)>;
             key-positions = <7 8>;
@@ -38,7 +26,7 @@
 
         cmb_select_right {
             bindings = <&kp LC(LS(RIGHT))>;
-            key-positions = <16 17>;
+            key-positions = <16 15>;
             layers = <3>;
         };
 
@@ -65,21 +53,77 @@
             key-positions = <10 11>;
             layers = <0>;
         };
-    };
 
-    behaviors {
-        hm: hm {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HM";
-            bindings =
-                <&kp>,
-                <&kp>;
+        cmb_del_fwd_del {
+            bindings = <&kp LS(LC(DEL))>;
+            key-positions = <8 9>;
+            layers = <0>;
+        };
 
-            #binding-cells = <2>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            flavor = "tap-preferred";
-            global-quick-tap;
+        cmb_left_ctrl {
+            bindings = <&kp LCTRL>;
+            key-positions = <16 15>;
+            layers = <0>;
+        };
+
+        cmb_left_shift {
+            bindings = <&kp LEFT_SHIFT>;
+            key-positions = <14 15>;
+            layers = <0>;
+        };
+
+        cmb_left_alt {
+            bindings = <&kp LEFT_ALT>;
+            key-positions = <27 28>;
+            layers = <0>;
+        };
+
+        cmb_left_gui {
+            bindings = <&kp LEFT_WIN>;
+            key-positions = <26 27>;
+            layers = <0>;
+        };
+
+        cmb_right_ctrl {
+            bindings = <&kp RIGHT_CONTROL>;
+            key-positions = <19 20>;
+            layers = <0>;
+        };
+
+        cmb_right_shift {
+            bindings = <&kp RIGHT_SHIFT>;
+            key-positions = <20 21>;
+            layers = <0>;
+        };
+
+        cmb_right_alt {
+            bindings = <&kp RIGHT_ALT>;
+            key-positions = <31 32>;
+            layers = <0>;
+        };
+
+        cmb_right_gui {
+            bindings = <&kp RIGHT_GUI>;
+            key-positions = <32 33>;
+            layers = <0>;
+        };
+
+        cmb_mo_3 {
+            bindings = <&mo 3>;
+            key-positions = <19 21>;
+            layers = <0>;
+        };
+
+        cmb_quick_bsp {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <39 40>;
+            layers = <0>;
+        };
+
+        cmb_quick_caps {
+            bindings = <&caps_word>;
+            key-positions = <16 14>;
+            layers = <0>;
         };
     };
 
@@ -94,10 +138,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &kp TAB  &kp Q             &kp W           &kp E        &kp R      &kp T      &kp Y                &kp U            &kp I         &kp O          &kp P              &kp BSPC
-&kp LCTRL  &kp A  &hm LEFT_SHIFT S  &hm LEFT_ALT D  &hm LCTRL F      &kp G      &kp H  &hm RIGHT_CONTROL J  &hm RIGHT_ALT K  &hm RSHIFT L  &kp SEMICOLON  &mt LEFT_SHIFT ENTER
-&kp LSHFT  &kp Z             &kp X           &kp C        &kp V      &kp B      &kp N                &kp M        &kp COMMA       &kp DOT       &kp FSLH                 &mo 3
-                                          &kp LALT        &mo 1  &kp SPACE    &kp RET                &mo 2         &kp RWIN
+  &kp TAB  &kp Q  &kp W     &kp E  &kp R      &kp T      &kp Y  &kp U      &kp I    &kp O          &kp P   &kp BSPC
+&kp LCTRL  &kp A  &kp S     &kp D  &kp F      &kp G      &kp H  &kp J      &kp K    &kp L  &kp SEMICOLON  &kp ENTER
+&kp LSHFT  &kp Z  &kp X     &kp C  &kp V      &kp B      &kp N  &kp M  &kp COMMA  &kp DOT       &kp FSLH      &mo 3
+                         &kp LALT  &mo 1  &kp SPACE    &kp RET  &mo 2   &kp RWIN
             >;
         };
 
@@ -109,10 +153,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-  &kp ESCAPE        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6        &kp F7        &kp F8        &kp F9       &kp F10  &kp BSPC
-&kp LEFT_ALT  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &trans
-      &trans      &kp PLUS     &kp MINUS      &kp STAR     &kp SLASH     &kp EQUAL         &kp F11       &kp F12         &none         &none         &none    &trans
-                                                &trans        &trans        &trans          &trans        &trans        &trans
+&trans     &kp MINUS  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp ASTRK     &none  &kp F7  &kp F8  &kp F9  &kp F10  &trans
+&trans      &kp PLUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp SLASH     &none  &kp F4  &kp F5  &kp F6  &kp F11  &trans
+&trans  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL     &none  &kp F1  &kp F2  &kp F3  &kp F12  &trans
+                                          &trans        &trans     &trans    &trans  &trans  &trans
             >;
         };
 
@@ -124,19 +168,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp ESCAPE        &kp CARET     &kp AMPERSAND          &kp TILDE           &kp PIPE            &none                &kp PLUS              &kp MINUS   &kp ASTERISK         &kp COLON      &kp EQUAL  &kp BSPC
- &kp LCTRL  &kp EXCLAMATION       &kp AT_SIGN           &kp HASH         &kp DOLLAR      &kp PERCENT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS      &kp COMMA        &kp PERIOD  &kp SEMICOLON    &trans
- &kp LSHFT   &kp UNDERSCORE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp LEFT_BRACE  &kp RIGHT_BRACE           &kp BACKSLASH              &kp SLASH  &kp LESS_THAN  &kp GREATER_THAN   &kp QUESTION    &trans
-                                                         &kp SQT  &kp DOUBLE_QUOTES        &kp SPACE                 &kp RET                 &trans         &trans
+&trans        &kp CARET     &kp AMPERSAND          &kp TILDE           &kp PIPE            &none                &kp PLUS              &kp MINUS   &kp ASTERISK         &kp COLON      &kp EQUAL  &trans
+&trans  &kp EXCLAMATION       &kp AT_SIGN           &kp HASH         &kp DOLLAR      &kp PERCENT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS      &kp COMMA        &kp PERIOD  &kp SEMICOLON  &trans
+&trans   &kp UNDERSCORE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp LEFT_BRACE  &kp RIGHT_BRACE           &kp BACKSLASH              &kp SLASH  &kp LESS_THAN  &kp GREATER_THAN   &kp QUESTION  &trans
+                                                     &kp SQT  &kp DOUBLE_QUOTES        &kp SPACE                 &kp RET                 &trans         &trans
             >;
         };
 
         function {
             bindings = <
-&kp ESCAPE     &kp LS(LC(TAB))  &kp UP_ARROW  &kp LC(TAB)        &none  &kp C_VOLUME_UP           &none         &none  &kp PRINTSCREEN  &none      &none  &kp DEL
-  &kp CAPS            &kp LEFT      &kp DOWN    &kp RIGHT        &none     &kp C_VOL_DN      &bt BT_CLR         &none            &none  &none      &none    &none
-&caps_word  &kp LC(C_PREVIOUS)     &kp LC(X)    &kp LC(C)    &kp LC(V)       &kp C_MUTE    &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &none  &kp QMARK    &none
-                                                    &none  &kp PAGE_UP         &kp HOME         &kp END     &kp PG_DN            &none
+&kp ESCAPE     &kp LS(LC(TAB))  &kp UP_ARROW  &kp LC(TAB)      &none  &kp C_VOLUME_UP           &none         &none  &kp PRINTSCREEN  &none      &none  &none
+  &kp CAPS            &kp LEFT      &kp DOWN    &kp RIGHT      &none     &kp C_VOL_DN      &bt BT_CLR         &none            &none  &none      &none  &none
+    &trans  &kp LC(C_PREVIOUS)     &kp LC(X)    &kp LC(C)  &kp LC(V)       &kp C_MUTE    &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &none  &kp QMARK  &none
+                                                    &none   &kp HOME          &kp END     &kp PAGE_UP     &kp PG_DN            &none
             >;
         };
     };
