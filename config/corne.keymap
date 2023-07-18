@@ -212,7 +212,7 @@
             bindings = <
 &none  &kp KP_NUMLOCK  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9            &none    &none  &none  &none  &kp KP_N0      &kp KP_DOT  &none
 &none           &none  &kp KP_NUMBER_4  &kp KP_NUMBER_2  &kp KP_NUMBER_6            &none    &none  &none  &none  &kp LCTRL  &kp LEFT_SHIFT  &none
-&none           &none  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3            &none    &none  &none  &none      &none           &none  &none
+&none           &none  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3      &kp KP_PLUS    &none  &none  &none      &none           &none  &none
                                            &kp KP_MINUS    &kp KP_DIVIDE  &kp KP_NUMBER_5    &none  &none  &none
             >;
         };
