@@ -1,4 +1,4 @@
-/*
+/*
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
@@ -14,7 +14,7 @@
 
         cmb_bsp {
             bindings = <&kp LC(BACKSPACE)>;
-            key-positions = <7 8>;
+            key-positions = <8 9>;
             layers = <0>;
         };
 
@@ -56,7 +56,7 @@
 
         cmb_del_fwd_del {
             bindings = <&kp LC(DEL)>;
-            key-positions = <8 9>;
+            key-positions = <9 7>;
             layers = <0>;
         };
 
@@ -122,7 +122,7 @@
 
         cmb_quick_bsp {
             bindings = <&kp BACKSPACE>;
-            key-positions = <7 9>;
+            key-positions = <7 8>;
             layers = <0>;
         };
 
@@ -140,7 +140,7 @@
 
         cmb_period {
             bindings = <&kp PERIOD>;
-            key-positions = <2 4>;
+            key-positions = <16 19>;
             layers = <0>;
         };
 
@@ -148,6 +148,26 @@
             bindings = <&key_repeat>;
             key-positions = <38 39>;
             layers = <0>;
+        };
+
+        cmb_quest {
+            bindings = <&kp QUESTION>;
+            key-positions = <4 7>;
+        };
+
+        cmb_excla {
+            bindings = <&kp EXCLAMATION>;
+            key-positions = <3 8>;
+        };
+
+        cmb_comma {
+            bindings = <&kp COMMA>;
+            key-positions = <28 31>;
+        };
+
+        cmb_dash {
+            bindings = <&kp MINUS>;
+            key-positions = <15 20>;
         };
     };
 
@@ -201,10 +221,10 @@
 
         function {
             bindings = <
-&kp ESCAPE  &kp LS(LC(TAB))  &kp UP_ARROW  &kp LC(TAB)      &none  &kp C_VOLUME_UP           &none         &none  &kp PRINTSCREEN  &none      &none  &none
-  &kp CAPS         &kp LEFT      &kp DOWN    &kp RIGHT      &none     &kp C_VOL_DN      &bt BT_CLR         &none            &none  &none      &none  &none
-    &trans        &kp LC(Z)     &kp LC(X)    &kp LC(C)  &kp LC(V)       &kp C_MUTE    &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &none  &kp QMARK  &none
-                                                 &none   &kp HOME          &kp END     &kp PAGE_UP     &kp PG_DN            &none
+&kp ESCAPE    &kp LA(UP_ARROW)  &kp LS(LC(TAB))    &kp UP_ARROW  &kp LC(TAB)  &kp C_VOLUME_UP           &none         &none  &kp PRINTSCREEN  &none      &none  &none
+  &kp CAPS  &kp LA(DOWN_ARROW)   &kp LEFT_ARROW  &kp DOWN_ARROW    &kp RIGHT     &kp C_VOL_DN      &bt BT_CLR         &none            &none  &none      &none  &none
+    &trans           &kp LC(Z)        &kp LC(X)       &kp LC(C)    &kp LC(V)       &kp C_MUTE    &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &none  &kp QMARK  &none
+                                                          &none     &kp HOME          &kp END     &kp PAGE_UP     &kp PG_DN            &none
             >;
         };
 
